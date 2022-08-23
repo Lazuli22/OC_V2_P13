@@ -36,7 +36,7 @@ def letting(request, letting_id):
     letting = Letting.objects.get(id=letting_id)
     context = {
         'title': letting.title,
-        'address': letting.address,
+        'Adresses': letting.Adresses,
     }
     return render(request, 'letting.html', context)
 

@@ -3,7 +3,7 @@ from django.core.validators import MaxValueValidator, MinLengthValidator
 from django.contrib.auth.models import User
 
 
-class Address(models.Model):
+class Adresses(models.Model):
     number = models.PositiveIntegerField(validators=[MaxValueValidator(9999)])
     street = models.CharField(max_length=64)
     city = models.CharField(max_length=64)
@@ -17,7 +17,7 @@ class Address(models.Model):
 
 class Letting(models.Model):
     title = models.CharField(max_length=256)
-    address = models.OneToOneField(Address, on_delete=models.CASCADE)
+    Adresses = models.OneToOneField(Adresses, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
