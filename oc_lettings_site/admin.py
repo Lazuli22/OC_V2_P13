@@ -1,7 +1,7 @@
 from django.contrib import admin
 
-from .models import Letting
-from .models import Addresses
+from lettings.models import Letting
+from lettings.models import Addresses
 from .models import Profile
 
 
