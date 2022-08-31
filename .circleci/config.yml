@@ -22,7 +22,7 @@ jobs:
     steps:
     - build
 
-worklows: 
+workflows: 
   build-with-docker:
     jobs:
     - build-with-docker
