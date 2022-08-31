@@ -21,3 +21,8 @@ jobs:
     executor: docker-executor
     steps:
     - build
+
+worklows: 
+  build-with-docker:
+    jobs:
+    - build-with-docker
