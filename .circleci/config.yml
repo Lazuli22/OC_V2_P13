@@ -23,7 +23,7 @@ executors:
     - image: cimg/python:3.10.6
 
 jobs:
-  build-with-docker:
+  build-linting-tests:
     executor: docker-executor
     steps:
     - build
@@ -33,4 +33,4 @@ jobs:
 workflows: 
   main_workflow:
     jobs:
-    - build-with-docker
+    - build-linting-tests
