@@ -13,12 +13,7 @@ commands:
   tests:
     steps: 
       - run : pytest
- 
-
-
-
-
-# Define a job to be invoked later in a workflow.
+ # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 
 executors:
@@ -35,6 +30,6 @@ jobs:
     - tests
 
 workflows: 
-  build-with-docker:
+  main_workflow:
     jobs:
     - build-with-docker
