@@ -32,6 +32,7 @@ jobs:
     steps:
     - build
     - linting
+    - tests
 
 workflows: 
   build-with-docker:
