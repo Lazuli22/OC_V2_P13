@@ -5,8 +5,8 @@ version: 2.1
 commands:
   build:
     steps:
-      -checkout
-      -python .manage.py runserver
+      - checkout
+      - python .manage.py runserver
 
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
