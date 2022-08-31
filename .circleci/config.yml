@@ -10,7 +10,11 @@ commands:
   linting:
     steps: 
       - run : flake8
-  
+  tests:
+    steps: 
+      - run : pytest
+ 
+
 
 
 
