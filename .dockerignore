@@ -1,0 +1,11 @@
+.circleci
+__pycache__
+.pytest_cache
+env
+.gitignore
+adresses.xml
+letting.xml
+profile.xml
+oc-lettings-site.sqlite3
+pytest.ini
+setup.cfg
