@@ -31,11 +31,9 @@ jobs:
       - build
       - linting
       - tests
-
   build-docker-image:
     steps:
       - dockerfile
-
   publish-latest:
     docker:
       - image: circleci/buildpack-deps:stretch
