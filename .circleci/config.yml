@@ -56,6 +56,6 @@ workflows:
     - build-docker-image:
         requires:
           - build-linting-tests
-    - publish-latest
+    - publish-latest:
         requires:
           - build-docker-image
