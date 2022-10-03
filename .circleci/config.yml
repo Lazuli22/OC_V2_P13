@@ -18,17 +18,9 @@ commands:
   dockerfile:
     steps: 
       - checkout
-      - run : docker build -t python-oc-lettings-fr .
-
-  docker-compose:
-    steps:
-      - checkout
-      - run : docker-compose up .
-      
- # Define a job to be invoked later in a workflow.
-# See: https://circleci.com/docs/2.0/configuration-reference/#jobs
-
-executors:
+      - run : docker build -t $IMAGE_NAME .
+  
+  executors:
   docker-executor: 
     docker:
     - image: cimg/python:3.10.6
@@ -44,7 +36,18 @@ jobs:
   build-docker-image:
     steps:
     - dockerfile
-    - docker-compose
+
+  publish-latest:
+    docker:
+      - image: circleci/buildpack-deps:stretch
+    steps:
+      - setup_remote_docker
+      - run:
+          name: Publish Docker Image to Docker Hub
+          command: |
+            echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+            docker push $IMAGE_NAME:latest
+
 
 workflows: 
   main_workflow:
