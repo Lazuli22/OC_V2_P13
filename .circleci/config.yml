@@ -54,5 +54,8 @@ workflows:
     jobs:
     - build-linting-tests
     - build-docker-image:
-          requires:
-            - build-linting-tests
+        requires:
+          - build-linting-tests
+    - publish-latest
+        requires:
+          - build-docker-image
