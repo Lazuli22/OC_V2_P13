@@ -28,13 +28,13 @@ jobs:
   build-linting-tests:
     executor: docker-executor
     steps:
-    - build
-    - linting
-    - tests
+      - build
+      - linting
+      - tests
 
   build-docker-image:
     steps:
-    - dockerfile
+      - dockerfile
 
   publish-latest:
     docker:
