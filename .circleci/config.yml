@@ -27,8 +27,8 @@ jobs:
       - build
       - linting
       - tests
-jobs:      
-    build-docker-image:
+  
+  build-docker-image:
       steps:
         - run:
           name: Build docker image
