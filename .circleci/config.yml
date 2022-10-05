@@ -28,10 +28,12 @@ jobs:
       - build
       - linting
       - tests
-      - run:
-        name: Build docker image
-        command: docker build -t $IMAGE_NAME .
-  
+jobs:      
+    build-docker-image:
+      steps:
+        - run:
+          name: Build docker image
+          command: docker build -t $IMAGE_NAME .
 
   # # publish-latest:
   #   docker:
