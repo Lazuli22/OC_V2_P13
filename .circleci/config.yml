@@ -15,11 +15,7 @@ commands:
   tests:
     steps:  
       - run : pytest
-  dockerfile:
-    steps: 
-      - checkout
-      - run : docker build -t $IMAGE_NAME .
-  
+          
 executors:
   docker-executor: 
     docker:
@@ -32,9 +28,12 @@ jobs:
       - build
       - linting
       - tests
+
   build-docker-image:
     steps:
-      - dockerfile
+      - checkout
+      - run : docker build -t $IMAGE_NAME .
+  
 
   # # publish-latest:
   #   docker:
