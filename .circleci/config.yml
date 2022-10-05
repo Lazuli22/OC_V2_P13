@@ -29,6 +29,7 @@ jobs:
       - tests
   
   build-docker-image:
+      executor: docker-executor
       steps:
         - run:
           name: Build docker image
