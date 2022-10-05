@@ -49,6 +49,8 @@ workflows:
   main_workflow:
     jobs:
     - build-linting-tests
+    - build-docker-image
+  
     # - build-docker-image:
     #     requires:
     #       - build-linting-tests
