@@ -31,10 +31,10 @@ jobs:
       - build
       - linting
       - tests
-  build-docker-image:
-    steps:
-      - dockerfile
-  # publish-latest:
+  # build-docker-image:
+  #   steps:
+  #     - dockerfile
+  # # publish-latest:
   #   docker:
   #     - image: circleci/buildpack-deps:stretch
   #   steps:
@@ -49,9 +49,9 @@ workflows:
   main_workflow:
     jobs:
     - build-linting-tests
-    - build-docker-image:
-        requires:
-          - build-linting-tests
-    - publish-latest:
-        requires:
-          - build-docker-image
+    # - build-docker-image:
+    #     requires:
+    #       - build-linting-tests
+    # - publish-latest:
+    #     requires:
+    #       - build-docker-image
