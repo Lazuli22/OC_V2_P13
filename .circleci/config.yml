@@ -38,8 +38,7 @@ jobs:
           command: docker build -t oc-letting-site .
 
   publish-latest:
-    executors:
-      docker-publisher: 
+    executors: 
       environment:
         IMAGE_NAME: diaz22/oc-letting-site
       docker:
