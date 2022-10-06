@@ -29,8 +29,10 @@ jobs:
       - tests
   
   build-docker-image:
-      executor: docker-executor
+      machine:
+        image: ubuntu-2204:2022.04.2
       steps:
+        - checkout
         - run: 
             name: Build Docker image
             command: docker build -t oc-letting-site .
