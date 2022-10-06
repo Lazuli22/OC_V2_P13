@@ -35,23 +35,9 @@ jobs:
       - checkout
       - run: 
           name: Build Docker image
-          command: docker build -t oc-letting-site .
-
-  publish-latest:
-    executors: 
-      environment:
-        IMAGE_NAME: diaz22/oc-letting-site
-      docker:
-        - image: circleci/buildpack-deps:stretch
-      auth:
-        username: $DOCKERHUB_USERNAME
-        password: $DOCKERHUB_PASSWORD
-    steps:
-      - setup_remote_docker
-      - run:
-          name: Publish Docker Image to Docker Hub
-          command: |
-            echo "$DOCKERHUB_PASS" | docker login ---username "$DOCKERHUB_USERNAME" --password-stdin
+          command: | 
+            docker build -t oc-letting-site . 
+            docker login --username $DOCKERHUB_USERNAME --password $DOCKERHUB_PASS 
             docker push $IMAGE_NAME:latest
 
 workflows: 
@@ -61,6 +47,4 @@ workflows:
     - build-docker-image:
         requires:
           - build-linting-tests
-    - publish-latest:
-           requires:
-           - build-docker-image
+   
