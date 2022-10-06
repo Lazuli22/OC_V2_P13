@@ -36,7 +36,7 @@ jobs:
       - run: 
           name: Build Docker image
           command: | 
-            docker build -t oc-letting-site . 
+            docker build -t $IMAGE_NAME . 
             docker login --username $DOCKERHUB_USERNAME --password $DOCKERHUB_PASS 
             docker push $IMAGE_NAME:latest
 
