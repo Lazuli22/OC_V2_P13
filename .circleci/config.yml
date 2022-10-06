@@ -32,8 +32,8 @@ jobs:
       executor: docker-executor
       steps:
         - run:
-          name: Build docker image
-          command: docker build -t $IMAGE_NAME .
+            name: Build docker image
+            command: docker build -t $IMAGE_NAME .
 
   # # publish-latest:
   #   docker:
