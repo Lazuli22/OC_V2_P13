@@ -44,9 +44,9 @@ jobs:
     machine:
       image: ubuntu-2204:2022.04.2
     steps:
-      -run: 
-        name: Run Docker image
-        command: docker run -it -d $DOCKERHUB_USERNAME/$IMAGE_NAME:$CIRCLE_SHA1
+      - run: 
+          name: Run Docker image
+          command: docker run -it -d $DOCKERHUB_USERNAME/$IMAGE_NAME:$CIRCLE_SHA1
 
 
 workflows: 
