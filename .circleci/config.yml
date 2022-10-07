@@ -58,4 +58,4 @@ workflows:
           - build-linting-tests
     - run-docker-image: 
         requires:
-          - build-publish-docker-image:
+          - build-publish-docker-image
