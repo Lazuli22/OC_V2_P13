@@ -46,7 +46,7 @@ jobs:
     steps:
       -run: 
         name: Run Docker image
-        command: docker run $DOCKERHUB_USERNAME/$IMAGE_NAME:$CIRCLE_SHA1
+        command: docker run -it -d $DOCKERHUB_USERNAME/$IMAGE_NAME:$CIRCLE_SHA1
 
 
 workflows: 
@@ -56,4 +56,4 @@ workflows:
     - build-publish-docker-image:
         requires:
           - build-linting-tests
-   - run-docker-image
+    - run-docker-image
