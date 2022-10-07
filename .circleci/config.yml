@@ -28,7 +28,7 @@ jobs:
       - linting
       - tests
   
-  build-docker-image:
+  build-publish-docker-image:
     machine:
       image: ubuntu-2204:2022.04.2
     steps:
@@ -40,12 +40,20 @@ jobs:
             docker build -t $DOCKERHUB_USERNAME/$IMAGE_NAME:$CIRCLE_SHA1 .
             docker login --username $DOCKERHUB_USERNAME --password $DOCKERHUB_PASS 
             docker push $DOCKERHUB_USERNAME/$IMAGE_NAME:$CIRCLE_SHA1
+  run-docker-image:
+    machine:
+      image: ubuntu-2204:2022.04.2
+    steps:
+      -run: 
+        name: Run Docker image
+        command: docker run $DOCKERHUB_USERNAME/$IMAGE_NAME:$CIRCLE_SHA1
+
 
 workflows: 
   main_workflow:
     jobs:
     - build-linting-tests
-    - build-docker-image:
+    - build-publish-docker-image:
         requires:
           - build-linting-tests
-   
+   - run-docker-image
