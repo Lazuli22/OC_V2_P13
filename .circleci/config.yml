@@ -61,6 +61,6 @@ workflows:
     - build-publish-docker-image:
         requires:
           - build-linting-tests
-    - run-docker-image: 
+    - publish-image-heroku: 
         requires:
           - build-publish-docker-image
