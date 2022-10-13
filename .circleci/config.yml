@@ -35,18 +35,23 @@ jobs:
       - checkout
       - run: 
           name: Build Docker image
-          command: | 
-            docker build -t $IMAGE_NAME . 
+          command: |
             docker build -t $DOCKERHUB_USERNAME/$IMAGE_NAME:$CIRCLE_SHA1 .
             docker login --username $DOCKERHUB_USERNAME --password $DOCKERHUB_PASS 
             docker push $DOCKERHUB_USERNAME/$IMAGE_NAME:$CIRCLE_SHA1
-  run-docker-image:
+
+  publish-image-heroku:
     machine:
       image: ubuntu-2204:2022.04.2
     steps:
       - run: 
-          name: Run Docker image
-          command: docker run -it -d $DOCKERHUB_USERNAME/$IMAGE_NAME:$CIRCLE_SHA1
+          command: |
+            docker login --username $DOCKERHUB_USERNAME --password $DOCKERHUB_PASS 
+            docker pull $DOCKERHUB_USERNAME/$IMAGE_NAME:$CIRCLE_SHA1
+            sudo curl https://cli-assets.heroku.com/install.sh | sh
+            HEROKU_API_KEY=${HEROKU_TOKEN} heroku container:login
+            HEROKU_API_KEY=${HEROKU_TOKEN} heroku container:push -a python-django-starter web
+            HEROKU_API_KEY=${HEROKU_TOKEN} heroku container:release -a python-django-starter web
 
 
 workflows: 
