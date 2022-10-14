@@ -48,8 +48,8 @@ jobs:
           command: | 
             docker login --username $DOCKERHUB_USERNAME --password $DOCKERHUB_PASS 
             docker pull $DOCKERHUB_USERNAME/$IMAGE_NAME:$CIRCLE_SHA1 
-            docker push registry.heroku.com/APP_NAME/web:$CIRCLE_SHA1
-            
+            docker push registry.heroku.com/APP_NAME/web:latest
+
 workflows: 
   main_workflow:
     jobs:
