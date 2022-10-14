@@ -43,17 +43,13 @@ jobs:
   publish-image-heroku:
     machine:
       image: ubuntu-2204:2022.04.2
-    steps:
+    steps:   
       - run: 
-          command: |
+          command: | 
             docker login --username $DOCKERHUB_USERNAME --password $DOCKERHUB_PASS 
-            docker pull $DOCKERHUB_USERNAME/$IMAGE_NAME:$CIRCLE_SHA1
-            sudo curl https://cli-assets.heroku.com/install.sh | sh
-            HEROKU_API_KEY=${HEROKU_TOKEN} heroku container:login
-            HEROKU_API_KEY=${HEROKU_TOKEN} heroku container:push -a $IMAGE_NAME web
-            HEROKU_API_KEY=${HEROKU_TOKEN} heroku container:release -a $IMAGE_NAME web
-
-
+            docker pull $DOCKERHUB_USERNAME/$IMAGE_NAME:$CIRCLE_SHA1 
+            docker push registry.heroku.com/APP_NAME/web:$CIRCLE_SHA1
+            
 workflows: 
   main_workflow:
     jobs:
