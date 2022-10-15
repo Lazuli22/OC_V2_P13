@@ -49,11 +49,12 @@ jobs:
             docker login --username $DOCKERHUB_USERNAME --password $DOCKERHUB_PASS 
             docker pull $DOCKERHUB_USERNAME/$IMAGE_NAME:$CIRCLE_SHA1
             docker tag $DOCKERHUB_USERNAME/$IMAGE_NAME:$CIRCLE_SHA1 registry.heroku.com/$IMAGE_NAME/web:SHA1 
+            heroku login
             docker push registry.heroku.com/$IMAGE_NAME/web:SHA1
 
 workflows: 
   main_workflow:
-    jobs:
+    jobs: 
     - build-linting-tests
     - build-publish-docker-image:
         requires:
