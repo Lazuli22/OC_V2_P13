@@ -45,7 +45,8 @@ jobs:
       - image: cimg/deploy:2022.09
     steps: 
       - setup_remote_docker:
-        version: 20.10.14  
+          version: 20.10.14
+
       - run: 
           command: | 
             docker login --username $DOCKERHUB_USERNAME --password $DOCKERHUB_PASS 
