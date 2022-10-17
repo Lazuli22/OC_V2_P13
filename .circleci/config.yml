@@ -41,14 +41,9 @@ jobs:
             docker push $DOCKERHUB_USERNAME/$IMAGE_NAME:$CIRCLE_SHA1
 
   publish-image-heroku:
-    docker:
-      - image: cimg/deploy:2022.09
-        auth:
-          username: $DOCKERHUB_USERNAME
-          password: $DOCKERHUB_PASSWORD
-    steps: 
-      - setup_remote_docker:
-          version: 20.10.14
+    machine:
+      image: ubuntu-2204:2022.04.2
+    steps:
       - run: 
           command: | 
             docker login --username $DOCKERHUB_USERNAME --password $DOCKERHUB_PASS 
