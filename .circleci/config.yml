@@ -43,7 +43,9 @@ jobs:
   publish-image-heroku:
     docker:
       - image: cimg/deploy:2022.09
-    steps:   
+    steps: 
+      - setup_remote_docker:
+        version: 20.10.14  
       - run: 
           command: | 
             docker login --username $DOCKERHUB_USERNAME --password $DOCKERHUB_PASS 
