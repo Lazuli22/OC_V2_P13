@@ -41,8 +41,8 @@ jobs:
             docker push $DOCKERHUB_USERNAME/$IMAGE_NAME:$CIRCLE_SHA1
 
   publish-image-heroku:
-    machine:
-      image: ubuntu-2204:2022.04.2
+    docker:
+      - image: cimg/deploy:2022.09
     steps:   
       - run: 
           command: | 
