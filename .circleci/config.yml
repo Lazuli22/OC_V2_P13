@@ -48,9 +48,8 @@ jobs:
           command: | 
             docker login --username $DOCKERHUB_USERNAME --password $DOCKERHUB_PASS 
             docker pull $DOCKERHUB_USERNAME/$IMAGE_NAME:$CIRCLE_SHA1
-            docker login --username=$HEROKU_LOGIN --password=$HEROKU_TOKEN registry.heroku.com
+            docker login --username=$HEROKU_LOGIN --password=$HEROKU_PWD registry.heroku.com
             docker tag $DOCKERHUB_USERNAME/$IMAGE_NAME:$CIRCLE_SHA1 registry.heroku.com/$IMAGE_NAME/web:latest
-            heroku container:login
             docker push registry.heroku.com/$IMAGE_NAME/web:latest
 workflows: 
   main_workflow:
