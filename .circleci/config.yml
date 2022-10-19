@@ -52,6 +52,7 @@ jobs:
             sudo curl https://cli-assets.heroku.com/install.sh | sh
             docker tag $DOCKERHUB_USERNAME/$IMAGE_NAME:$CIRCLE_SHA1 registry.heroku.com/$IMAGE_NAME/web:latest
             HEROKU_API_KEY=${HEROKU_API_TOKEN} heroku container:login
+            heroku ps:scale web=1
             HEROKU_API_KEY=${HEROKU_API_TOKEN} heroku container:push -a registry.heroku.com/$IMAGE_NAME/web:latest web  
             HEROKU_API_KEY=${HEROKU_API_TOKEN} heroku container:release -a registry.heroku.com/$IMAGE_NAME/web:latest web
 
