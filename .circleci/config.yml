@@ -50,7 +50,7 @@ jobs:
             docker pull $DOCKERHUB_USERNAME/$IMAGE_NAME:$CIRCLE_SHA1
             sudo curl https://cli-assets.heroku.com/install.sh | sh
             HEROKU_API_KEY=${HEROKU_API_TOKEN} heroku container:login
-            HEROKU_API_KEY=${HEROKU_API_TOKEN} heroku container:push web  
+            HEROKU_API_KEY=${HEROKU_API_TOKEN} heroku container:push -a $IMAGE_NAME web  
             HEROKU_API_KEY=${HEROKU_API_TOKEN} heroku container:release -a registry.heroku.com/$IMAGE_NAME/web:latest web
 
 workflows: 
