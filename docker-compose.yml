@@ -1,0 +1,21 @@
+version: "3.9"
+   
+services:
+  sqlite3:
+    image: nouchka/sqlite3:latest
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./db/:/root/db/
+    
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    environment:
+      - SQLITE_NAME=oc-lettings-site.sqlite3
+    depends_on:
+      - sqlite3
