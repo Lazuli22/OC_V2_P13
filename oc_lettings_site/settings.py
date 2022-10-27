@@ -1,5 +1,4 @@
 import os
-import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -14,8 +13,12 @@ SECRET_KEY = 'fp$9^593hsriajg$_%=5trot9g!1qa@ew(o-1#@=&4%=hp46(s'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
+<<<<<<< HEAD
 ALLOWED_HOSTS = ['*', ]
 
+=======
+ALLOWED_HOSTS = ['*']
+>>>>>>> parent of 2cd7e4f... remplace sliqte3
 
 # Application definition
 
@@ -29,7 +32,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'whitenoise.runserver_nostatic',
 ]
 
 MIDDLEWARE = [
@@ -72,8 +74,6 @@ WSGI_APPLICATION = 'oc_lettings_site.wsgi.application'
 #         'NAME': os.path.join(BASE_DIR, 'oc-lettings-site.sqlite3'),
 #     }
 # }
-# https://dev.to/giftedstan/heroku-how-to-deploy-a-django-app-with-postgres-in-5-minutes-5lk
-
 
 DATABASES = {
     'default': {
@@ -86,8 +86,6 @@ DATABASES = {
     }
 }
 
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -126,5 +124,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+<<<<<<< HEAD
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+=======
+>>>>>>> parent of 2cd7e4f... remplace sliqte3
