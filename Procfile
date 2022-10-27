@@ -1,1 +1,1 @@
-web: gunicorn oc-lettings_site.wsgi --log-file -
+web: gunicorn gettingstarted.wsgi
