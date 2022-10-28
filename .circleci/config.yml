@@ -58,9 +58,18 @@ workflows:
   main_workflow:
     jobs: 
     - build-linting-tests
+        filters:
+            branches:
+              ignore: master
     - build-publish-docker-image:
         requires:
           - build-linting-tests
+        filters:
+            branches:
+              only: master
     - publish-image-heroku: 
         requires:
           - build-publish-docker-image
+        filters:
+            branches:
+              only: master

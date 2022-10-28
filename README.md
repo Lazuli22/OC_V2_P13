@@ -75,3 +75,10 @@ Utilisation de PowerShell, comme ci-dessus sauf :
 
 - Pour activer l'environnement virtuel, `.\venv\Scripts\Activate.ps1` 
 - Remplacer `which <my-command>` par `(Get-Command <my-command>).Path`
+
+### Déploiement
+
+
+    un récapitulatif haut niveau du fonctionnement du déploiement ;
+    la configuration requise pour que le déploiement fonctionne correctement ;
+    les étapes nécessaires pour effectuer le déploiement (votre successeur doit être capable de suivre vos instructions et de faire le travail sans problème, sans avoir à passer du temps à rechercher le problème/la solution lui-même).
