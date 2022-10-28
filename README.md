@@ -77,7 +77,7 @@ Utilisation de PowerShell, comme ci-dessus sauf :
 - Remplacer `which <my-command>` par `(Get-Command <my-command>).Path`
 
 ### Déploiement
-
+- Principe de bae de déploiement :  
 
     un récapitulatif haut niveau du fonctionnement du déploiement ;
     la configuration requise pour que le déploiement fonctionne correctement ;
