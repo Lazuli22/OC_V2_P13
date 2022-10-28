@@ -57,10 +57,7 @@ jobs:
 workflows: 
   main_workflow:
     jobs: 
-    - build-linting-tests:
-        filters:
-            branches:
-              ignore: master
+    - build-linting-tests
     - build-publish-docker-image:
         requires:
           - build-linting-tests
