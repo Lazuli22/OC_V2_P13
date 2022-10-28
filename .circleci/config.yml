@@ -57,7 +57,7 @@ jobs:
 workflows: 
   main_workflow:
     jobs: 
-    - build-linting-tests
+    - build-linting-tests:
         filters:
             branches:
               ignore: master
