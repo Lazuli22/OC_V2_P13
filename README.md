@@ -77,8 +77,12 @@ Utilisation de PowerShell, comme ci-dessus sauf :
 - Remplacer `which <my-command>` par `(Get-Command <my-command>).Path`
 
 ### Déploiement
-- Principe de bae de déploiement :  
-
+- Principes de base de déploiement :  
+  La plateforme circleCI comporteun pipeline de déploiement qui permet :
+    - de "build-linting-tests": 
+      - de copier le projet Django ; 
+      - de télécharger son environnement virtuel ;
+      - de vérifier que le code est flake8.
     un récapitulatif haut niveau du fonctionnement du déploiement ;
     la configuration requise pour que le déploiement fonctionne correctement ;
     les étapes nécessaires pour effectuer le déploiement (votre successeur doit être capable de suivre vos instructions et de faire le travail sans problème, sans avoir à passer du temps à rechercher le problème/la solution lui-même).
