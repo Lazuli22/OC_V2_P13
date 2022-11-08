@@ -78,7 +78,7 @@ Utilisation de PowerShell, comme ci-dessus sauf :
 
 ### Déploiement
 - Principes de base de déploiement :  
-  La plateforme circleCI comporteun pipeline de déploiement qui permet :
+  La plateforme circleCI comporte pipelines de déploiement qui permettent :
     - de "build-linting-tests": 
       - de copier le projet Django ; 
       - de télécharger son environnement virtuel ;
