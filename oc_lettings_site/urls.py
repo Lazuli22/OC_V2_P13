@@ -8,9 +8,9 @@ def trigger_error(request):
 
 
 urlpatterns = [
+    path('admin/', admin.site.urls),
     path('sentry-debug/', trigger_error),
     path('', views.index, name='index'),
     path('lettings/', include('lettings.urls')),
     path('profiles/', include('profiles.urls')),
-    path('admin/', admin.site.urls),
 ]
